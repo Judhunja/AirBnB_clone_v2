@@ -4,7 +4,8 @@
 sudo apt-get -y update
 sudo apt-get -y install nginx
 
-sudo mkdir -p /data/web_static/releases/test/ /data/web_static/shared/
+sudo mkdir -p /data/web_static/releases/test
+sudo mkdir -p /data/web_static/shared
 
 sudo echo "Finish all projects!" | sudo tee /data/web_static/releases/test/index.html
 
