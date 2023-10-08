@@ -9,9 +9,9 @@ sudo mkdir -p /data/web_static/shared
 
 sudo echo "Finish all projects!" | sudo tee /data/web_static/releases/test/index.html
 
-sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
+sudo ln -sfn /data/web_static/releases/test/ /data/web_static/current
 
-sudo chown -hR ubuntu:ubuntu /data/
+sudo chown -R ubuntu:ubuntu /data/
 
 loc="\\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}"
 
