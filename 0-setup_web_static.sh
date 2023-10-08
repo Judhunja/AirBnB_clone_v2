@@ -12,7 +12,7 @@ sudo ln -sf /data/web_static/releases/test/ /data/web_static/current
 
 sudo chown -hR ubuntu:ubuntu /data/
 
-loc="location /hbnb_static/ {\n alias /data/web_static/current/;\n}"
+loc="\\\tlocation /hbnb_static/ {\n\t\talias /data/web_static/current/;\n\t}"
 
 sudo sed -i "/server {/a $loc" /etc/nginx/sites-available/default
 
