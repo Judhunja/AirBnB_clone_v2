@@ -78,3 +78,8 @@ class FileStorage:
         del self.__objects[key]
 
         storage.save()
+
+    def close(self):
+        """ Calls reload method for deserializing the JSON
+        file to objects """
+        self.reload()
