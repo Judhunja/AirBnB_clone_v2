@@ -27,9 +27,11 @@ class DBStorage:
         password = getenv('HBNB_MYSQL_PWD')
         user = getenv('HBNB_MYSQL_USER')
 
-        self.__engine = create_engine(f"mysql+mysqldb://{user}\
-                :{password}@{host}/{db}",
-                                      pool_pre_ping=True)
+        self.__engine = create_engine(
+            f"mysql+mysqldb://{user}:{password}@{host}/{db}",
+            pool_pre_ping=True
+            )
+
         if getenv('HBNB_ENV') == 'test':
             metadata = MetaData()
             metadata.reflect(bind=self.__engine)
