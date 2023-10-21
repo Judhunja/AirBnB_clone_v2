@@ -10,10 +10,11 @@ from sqlalchemy.orm import sessionmaker, scoped_session
 
 
 name_and_class = {
-    'User':User,
+    'User': User,
     'State': State,
     'City': City
 }
+
 
 class DBStorage:
     """db data storage"""
@@ -26,7 +27,9 @@ class DBStorage:
         password = getenv('HBNB_MYSQL_PWD')
         user = getenv('HBNB_MYSQL_USER')
 
-        self.__engine = create_engine(f"mysql+mysqldb://{user}:{password}@{host}/{db}", pool_pre_ping=True)
+        self.__engine = create_engine(f"mysql+mysqldb://{user}\
+                :{password}@{host}/{db}",
+                                      pool_pre_ping=True)
         if getenv('HBNB_ENV') == 'test':
             metadata = MetaData()
             metadata.reflect(bind=self.__engine)
@@ -65,7 +68,6 @@ class DBStorage:
 
     def reload(self):
         """reloads the databse"""
-
         Base.metadata.create_all(self.__engine)
         Session = sessionmaker(bind=self.__engine, expire_on_commit=False)
         Session = scoped_session(Session)

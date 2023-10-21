@@ -24,9 +24,6 @@ class FileStorage:
                 if v.__class__ == cls:
                     matching_objs[k] = v
             return matching_objs
-      
-
-
 
     def new(self, obj):
         """Adds new object to storage dictionary"""

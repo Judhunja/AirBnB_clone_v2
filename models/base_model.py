@@ -10,6 +10,7 @@ from sqlalchemy import Column, String, Integer, DateTime
 
 Base = declarative_base()
 
+
 class BaseModel:
     """A base class for all hbnb models"""
     id = Column(String(60), primary_key=True, nullable=False)
@@ -41,6 +42,7 @@ class BaseModel:
         self.updated_at = datetime.now()
         storage.new(self)
         storage.save()
+
     def delete(self):
         from models import storage
         models.storage.delete(self)
