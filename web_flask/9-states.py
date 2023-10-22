@@ -1,4 +1,6 @@
 #!/usr/bin/python3
+""" This script handles templating cities within states
+"""
 from flask import Flask, render_template
 from models import storage
 from models.state import State
@@ -35,6 +37,13 @@ def list_cities(id):
                            state=st,
                            cities=cities,
                            state_not_found=state_not_found)
+
+
+@app.teardown_appcontext
+def teardown(request):
+    """ Removes current sqlalchemy Session after each
+    request """
+    storage.close()
 
 
 if __name__ == "__main__":
